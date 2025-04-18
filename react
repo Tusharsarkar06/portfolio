@@ -1,0 +1,56 @@
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Sun, Moon } from "lucide-react";
+
+export default function Portfolio() {
+  const [darkMode, setDarkMode] = useState(true);
+
+  return (
+    <div className={darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"}>
+      <header className="flex justify-between items-center p-6 shadow-md">
+        <h1 className="text-2xl font-bold">Tushar Kumar Sarkar</h1>
+        <Button onClick={() => setDarkMode(!darkMode)} variant="ghost">
+          {darkMode ? <Sun /> : <Moon />}
+        </Button>
+      </header>
+
+      <section className="p-10">
+        <motion.h2 className="text-4xl font-semibold mb-4" initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }}>AI/ML Student</motion.h2>
+        <p className="text-lg max-w-2xl">
+          Hii I am a 1st-year B.Tech student studying at the prestigious Lovely Professional University. I am passionate about technology and the advancement of AI, and how it is making work easier. So I am learning how to use it properly.
+        </p>
+      </section>
+
+      <section className="p-10">
+        <h3 className="text-2xl font-semibold mb-2">Skills</h3>
+        <ul className="list-disc list-inside">
+          <li>Python</li>
+          <li>CSS</li>
+          <li>HTML</li>
+          <li>C</li>
+          <li>SQL</li>
+        </ul>
+      </section>
+
+      <section className="p-10">
+        <h3 className="text-2xl font-semibold mb-2">Project: AI Stick</h3>
+        <p className="max-w-xl">
+          The AI Stick is designed to help blind people and make them aware of obstacles. If the user doesn't respond within 20 seconds, it automatically contacts the nearest hospital by sharing their location.
+        </p>
+      </section>
+
+      <section className="p-10">
+        <h3 className="text-2xl font-semibold mb-2">Social Links</h3>
+        <ul className="space-y-2">
+          <li><a href="https://github.com/Tusharsarkar06" className="text-blue-500 hover:underline">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/tushar-kumar-sarkar-525237262/" className="text-blue-500 hover:underline">LinkedIn</a></li>
+        </ul>
+      </section>
+
+      <footer className="text-center p-6 mt-10 border-t">
+        &copy; {new Date().getFullYear()} Tushar Kumar Sarkar
+      </footer>
+    </div>
+  );
+}
